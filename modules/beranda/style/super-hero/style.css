@@ -1,0 +1,120 @@
+*{
+	padding:0; margin:0;
+}
+
+p{
+	font-family: 'Voltaire', sans-serif;
+	color: #DDDDDD;
+	margin-right: 20px;
+}
+small{
+	color: #b69877;
+}
+small a, 
+p a{
+	color: #ddd;
+	text-decoration: none;
+}
+
+/* Header */
+header{
+	background: #2064ff;
+	padding: 10px 65px;
+	margin-bottom: 0;
+	position: relative;
+	z-index: 10;
+	overflow: hidden;
+}
+
+header img{
+	float: left;
+	padding-right:0px;
+}
+header h1{
+	margin-top:1px;
+	margin-left:110px;
+	font-size:35px;
+	font-family:'Century Gothic';
+	letter-spacing:-1px;
+	font-weight:bolder;
+	text-shadow: 1px 3px 4px black;
+}
+header h1 a:hover{
+	color: #dddddd;
+	text-decoration: none;
+}
+header small{
+	margin-left:70px;
+	color:white;
+	font-size:27px;
+	line-height:5px;
+	font-family:'Century Gothic';
+	letter-spacing:3px;
+}
+header .smallcopy{
+	font-size:10px;
+	line-height:5px;
+	font-family:'Century Gothic';
+	letter-spacing:-1px;
+}
+
+/* Content */
+
+.page{
+	
+}
+.one{
+	background-color: #d4d4d4;
+}
+	.one .page-container{		
+		position: relative;
+		bottom: -30px;
+		margin-left: 70px;
+		margin-bottom: 10px;
+		max-width: 100%px;
+	}
+		.one .page-container h2{
+			font-size: 4em;
+		}
+		.one .page-container p{
+			padding: 20px 0;
+			line-height: 1.5em;
+		}
+
+.two{
+	background-color: #2b3e50;
+}
+	.two .page-container{
+		position: relative;
+		bottom: -30px;
+		margin-left: 70px;
+		margin-bottom: 10px;
+		max-width: 100%;
+	}
+		.two .page-container h2{
+			font-size: 4em;
+		}
+		.two .page-container p{
+			padding: 20px 0;
+			line-height: 1.5em;
+		}
+
+
+.three{
+	background-color: #036564;
+}
+	.three .page-container{
+		position: absolute;
+		bottom: 100px;
+		margin-left: -400px;
+		left: 50%;
+		margin-bottom: 190px;
+		max-width: 100%;
+	}
+		.three .page-container h2{
+			font-size: 4em;
+		}
+		.three .page-container p{
+			padding: 20px 0;
+			line-height: 1.5em;
+		}

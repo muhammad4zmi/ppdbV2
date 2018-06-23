@@ -1,12 +1,20 @@
 <?php
-// if (isset($_POST['tambah'])) {
+ //if (isset($_POST['tambah'])) {
 
     function ubahformatTgl($tanggal) {
         $pisah = explode('/',$tanggal);
-        $urutan = array($pisah[2],$pisah[1],$pisah[0]);
+        $urutan = array($pisah[2],$pisah[0],$pisah[1]);
         $satukan = implode('-',$urutan);
         return $satukan;
     }
+
+    $lokasii=$_FILES['fgambar']['tmp_name'];
+	$typee=$_FILES['fgambar']['type'];
+	$edit_profil=$_FILES['fgambar']['name'];
+
+	// $cb=mysql_fetch_array(mysql_query("select * from profil where judul='$_POST[judul]'"))or die("gagal".mysql_error());
+	// if(!empty($lokasii)){
+	move_uploaded_file($lokasii,"foto/$edit_profil");
     $no_daftar = antiinjection($_POST['no_daftar']);
     $nis = antiinjection($_POST['nis']);
     $nisn = antiinjection($_POST['nisn']);
@@ -87,9 +95,9 @@
 }else{
     $s = mysqli_query($link, "INSERT Into tbl_siswa values('$no_daftar', '$nis', '$nisn',
         '$nama_lengkap', '$t_lahir','$ubahtgl','$jk', '$agama','$khusus', '$anak','$saudara', '$kps', '$seri', '$alamat', '$kelurahan','$kecamatan','$kota', '$provinsi', '$trans', '$tinggal','$jarak','$no_telpon','$email', '$sekolah','$alamat_sekolah', '$no_ujian', '$nilai_un', 
-            '$nilai_us',  '$seri_ijazah', '$seri_skhun',  '$nama_ayah', '$thn_ayah',  '$kerja_ayah','$p_ayah','$hasil_ayah','$alamat_ayah', '$nama_ibu', '$thn_ibu', '$kerja_ibu', '$p_ibu', '$hasil_ibu','$alamat_ibu', '$nama_wali','$thn_wali','$kerja_wali','$p_wali', '$hasil_wali', '$alamat_wali', '$no_wali','$tinggi', '$berat', '$hobi')");
+            '$nilai_us',  '$seri_ijazah', '$seri_skhun',  '$nama_ayah', '$thn_ayah',  '$kerja_ayah','$p_ayah','$hasil_ayah','$alamat_ayah', '$nama_ibu', '$thn_ibu', '$kerja_ibu', '$p_ibu', '$hasil_ibu','$alamat_ibu', '$nama_wali','$thn_wali','$kerja_wali','$p_wali', '$hasil_wali', '$alamat_wali', '$no_wali','$tinggi', '$berat', '$hobi','$edit_profil')");
     $reply=$_POST['reply'];
-     $reply ="Terima Kasih ".$nama_lengkap. " Sudah Mendaftar sebagai santri baru MA Muallimin NW Anjani Thn 2017. Untuk Info lebih lanjut hub. Panitia di 081918405331";
+     $reply ="Terima Kasih ".$nama_lengkap. " Sudah Mendaftar sebagai santri baru MA Muallimin NW Anjani Thn 2018. Untuk Info lebih lanjut hub. Panitia di 081918405331";
             mysqli_query($link,"INSERT INTO outbox (DestinationNumber, TextDecoded) VALUES ('$no_telpon', '$reply')");
     $syarat = $_POST['syarat'];
     $jumlah_dipilih = count($syarat);

@@ -26,7 +26,7 @@ function DateToIndo($date) { // fungsi atau method untuk mengubah tanggal ke for
                                         </tr> 
                                         <tr height="20px" bgcolor="#E4E6DD">
                                             <th rowspan="1" align="center">No Pendaftaran</th>
-                                            <th rowspan="1" align="center">NIS</th>
+                                            <th rowspan="1" align="center">NIK</th>
                                             <th rowspan="1" align="center">NISN</th>
                                             <th rowspan="1" align="center">Nama Lengkap</th>
                                             <th rowspan="1" align="center">TTL</th>
@@ -92,53 +92,22 @@ function DateToIndo($date) { // fungsi atau method untuk mengubah tanggal ke for
 	
 	//query menampilkan data
 	$sql_siswa = mysqli_query($link, "select db_ppdb.tbl_siswa.no_daftar
-,db_ppdb.tbl_siswa.nis
-,db_ppdb.tbl_siswa.nisn
-,db_ppdb.tbl_siswa.nama_lengkap
-,db_ppdb.tbl_siswa.tempat_lahir
-,db_ppdb.tbl_siswa.tgl_lahir
-,db_ppdb.tbl_siswa.jk
-,db_ppdb.tbl_siswa.agama
-,db_ppdb.tbl_siswa.khusus
-,db_ppdb.tbl_siswa.anak_ke
-,db_ppdb.tbl_siswa.jml_saudara
-,db_ppdb.tbl_siswa.kps
-,db_ppdb.tbl_siswa.seri_kps
-,db_ppdb.tbl_siswa.alamat
-,db_ppdb.tbl_siswa.alat_transportasi
-,db_ppdb.tbl_siswa.tempat_tggl
-,db_ppdb.tbl_siswa.jarak_sekolah
-,db_ppdb.tbl_siswa.telpon
-,db_ppdb.tbl_siswa.email
-,asal_sekolah
-,db_ppdb.tbl_siswa.alamat_sekolah
-,db_ppdb.tbl_siswa.noujian_smp
-,db_ppdb.tbl_siswa.nilai_un
-,db_ppdb.tbl_siswa.nilai_us
-,db_ppdb.tbl_siswa.seri_ijazah
-,db_ppdb.tbl_siswa.seri_skhun
-,db_ppdb.tbl_siswa.nama_ayah
-,db_ppdb.tbl_siswa.thn_ayah
-,db_ppdb.tbl_siswa.pekerjaan_ayah
-,db_ppdb.tbl_siswa.pendidikan_ayah
-,db_ppdb.tbl_siswa.penghasilan
-,db_ppdb.tbl_siswa.alamat_ayah
-,db_ppdb.tbl_siswa.nama_ibu
-,db_ppdb.tbl_siswa.thn_ibu
-,db_ppdb.tbl_siswa.pekerjaan_ibu
-,db_ppdb.tbl_siswa.pendidikan_ibu
-,db_ppdb.tbl_siswa.penghasilan_ibu
-,db_ppdb.tbl_siswa.alamat_ibu
-,db_ppdb.tbl_siswa.nama_wali
-,db_ppdb.tbl_siswa.lahir_wali
-,db_ppdb.tbl_siswa.pendidikan_wali
-,db_ppdb.tbl_siswa.pekerjaan_wali
-,db_ppdb.tbl_siswa.hasil_wali
-,db_ppdb.tbl_siswa.alamat_wali
-,db_ppdb.tbl_siswa.no_wali
-,db_ppdb.tbl_siswa.tinggi_badan
-,db_ppdb.tbl_siswa.berat_badan
-,db_ppdb.tbl_siswa.hobi,
+,db_ppdb.tbl_siswa.nis,db_ppdb.tbl_siswa.nisn,db_ppdb.tbl_siswa.nama_lengkap
+,db_ppdb.tbl_siswa.tempat_lahir,db_ppdb.tbl_siswa.tgl_lahir,db_ppdb.tbl_siswa.jk
+,db_ppdb.tbl_siswa.agama,db_ppdb.tbl_siswa.khusus,db_ppdb.tbl_siswa.anak_ke
+,db_ppdb.tbl_siswa.jml_saudara,db_ppdb.tbl_siswa.kps,db_ppdb.tbl_siswa.seri_kps
+,db_ppdb.tbl_siswa.alamat,db_ppdb.tbl_siswa.alat_transportasi,db_ppdb.tbl_siswa.tempat_tggl
+,db_ppdb.tbl_siswa.jarak_sekolah,db_ppdb.tbl_siswa.telpon,db_ppdb.tbl_siswa.email
+,asal_sekolah,db_ppdb.tbl_siswa.alamat_sekolah,db_ppdb.tbl_siswa.noujian_smp
+,db_ppdb.tbl_siswa.nilai_un,db_ppdb.tbl_siswa.nilai_us,db_ppdb.tbl_siswa.seri_ijazah
+,db_ppdb.tbl_siswa.seri_skhun,db_ppdb.tbl_siswa.nama_ayah,db_ppdb.tbl_siswa.thn_ayah
+,db_ppdb.tbl_siswa.pekerjaan_ayah,db_ppdb.tbl_siswa.pendidikan_ayah,db_ppdb.tbl_siswa.penghasilan
+,db_ppdb.tbl_siswa.alamat_ayah,db_ppdb.tbl_siswa.nama_ibu,db_ppdb.tbl_siswa.thn_ibu
+,db_ppdb.tbl_siswa.pekerjaan_ibu,db_ppdb.tbl_siswa.pendidikan_ibu,db_ppdb.tbl_siswa.penghasilan_ibu
+,db_ppdb.tbl_siswa.alamat_ibu,db_ppdb.tbl_siswa.nama_wali,db_ppdb.tbl_siswa.lahir_wali
+,db_ppdb.tbl_siswa.pendidikan_wali,db_ppdb.tbl_siswa.pekerjaan_wali,db_ppdb.tbl_siswa.hasil_wali
+,db_ppdb.tbl_siswa.alamat_wali,db_ppdb.tbl_siswa.no_wali,db_ppdb.tbl_siswa.tinggi_badan
+,db_ppdb.tbl_siswa.berat_badan,db_ppdb.tbl_siswa.hobi,
 db_ppdb.tbl_siswa.kecamatan,db_ppdb.tbl_siswa.desa,db_ppdb.tbl_siswa.kabupaten,db_ppdb.tbl_siswa.provinsi,
 wilayah.tbl_kecamatan.id,wilayah.tbl_kecamatan.nama_kec,wilayah.tbl_kelurahan.id,wilayah.tbl_kelurahan.nama_kel,wilayah.tbl_kota.id,
 wilayah.tbl_kota.nama_kota,wilayah.tbl_provinsi.id,wilayah.tbl_provinsi.nama_prov

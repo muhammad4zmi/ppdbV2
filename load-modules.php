@@ -78,6 +78,7 @@ switch ($module) {
     case 'kirim_semua':
     require("modules/kirimPesan/send1.php");
     break;
+    
 
 
     //------------Route Untuk Halaman Wali Kelas------------//
@@ -95,6 +96,9 @@ switch ($module) {
     //------------Route Untuk Halaman SIswa-----------//
     case 'dt_siswa' :
     require("modules/siswa/index.php");
+    break;
+    case 'upload_foto':
+    require("modules/siswa/upload_foto.php");
     break;
     case 'form_siswa' :
     require("modules/siswa/form_siswa.php");
@@ -119,6 +123,21 @@ switch ($module) {
     break;
     case 'siswa' :
     require("modules/siswa/data.php");
+    break;
+    case 'backup' :
+    require("modules/siswa/backup.php");
+    break;
+     case 'proses_back' :
+    require("modules/siswa/db.php");
+    break;
+    case 'check-daftar' :
+    require("modules/siswa/checkdaftar.php");
+    break;
+     case 'view' :
+    require("modules/siswa/view.php");
+    break;
+    case 'backup_restore':
+    require("modules/beranda/backup_restore.php");
     break;
 
     //------------Route Untuk Halaman Statistik------------//

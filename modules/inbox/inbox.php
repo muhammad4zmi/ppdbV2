@@ -40,9 +40,10 @@
                       <tr>
 
                           <th>#</th>
+                          <th>Tgl Masuk</th>
                             <th>Pengirim</th>
                             <th>Isi Sms</th>
-                            <th>Proses</th>
+                           <!--  <th>Proses</th> -->
                             <th>Aksi</th>
                       </tr>
                     </thead>
@@ -51,16 +52,23 @@
                         //include 'config/koneksi.php';
 
 
-                        $query = mysqli_query($link,"SELECT * FROM inbox");
+                        $query = mysqli_query($link,"SELECT * FROM inbox  order by ReceivingDateTime asc");
 
                         // tampilkan data siswa selama masih ada
                         while ($data = mysqli_fetch_array($query)) {
+                           $nomer = mysqli_query($link,"SELECT nama_lengkap FROM tbl_siswa WHERE telpon = '$data[SenderNumber]'");
+                            $d = mysqli_fetch_array($nomer);
+                            if ($d['nama_lengkap'] == "")
+                                $sendingname = $data['SenderNumber'];
+                            else
+                                $sendingname = $d['nama_lengkap'];
                             ?>
                             <tr class="">
                                 <td><?php echo $data['ID']; ?></td>
-                                <td><?php echo $data['SenderNumber']; ?></td>
+                                <td><?php echo $data['ReceivingDateTime']?></td>
+                                <td><?php echo $sendingname; ?></td>
                                 <td><?php echo $data['TextDecoded']; ?></td>
-                                <td><?php echo $data['Processed']; ?></td>
+                               <!--  <td><?php echo $data['Processed']; ?></td> -->
 
                                 <td>
 
@@ -68,8 +76,11 @@
                                         <i class="glyphicon glyphicon-trash"></i>
 
                                     </a>
-                                </td>
 
+                                     <a href="#" class="edit-record" data-id="<?php echo $data['SenderNumber'];?>" title="" data-original-title="">
+                                                    <button type="button" class="btn btn-info btn-flat btn-xs"><i class="fa fa-mail-reply"></i> Balas</button>
+                                                </a>
+                                </td>
 
                             </tr>
     <?php
@@ -85,13 +96,47 @@
 
            
                </div> -->
+               <div class="modal fade" id="balas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-comment fa-fw fa-lg"></i> Balas Pesan</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
 
                
 
               <!-- footer content -->
+              <script src="../js/bootstrap-transition.js"></script>
+<script src="../js/bootstrap-datepicker.js"></script>
+<script>
+  $(function(){
+    $(document).on('click','.edit-record',function(e){
+        e.preventDefault();
+        $("#balas").modal('show');
+        $.post('modules/inbox/hasil.php',
+            {SenderNumber:$(this).attr('data-id')},
+
+            function(html){
+                $(".modal-body").html(html);
+            }   
+            );
+    });
+});
+
+</script>
               
 
-        <script src="js/bootstrap.min.js"></script>
+        <!-- <script src="js/bootstrap.min.js"></script>
 
         <!-- bootstrap progress js -->
         <script src="js/progressbar/bootstrap-progressbar.min.js"></script>
@@ -100,7 +145,7 @@
         <script src="js/icheck/icheck.min.js"></script>
 
         <script src="js/custom.js"></script>
-
+ 
 
         <!-- Datatables -->
         <!-- <script src="js/datatables/js/jquery.dataTables.js"></script>

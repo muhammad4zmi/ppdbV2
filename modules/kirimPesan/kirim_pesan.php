@@ -77,7 +77,8 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Isi Pesan</label>
+                                                <label>Isi Pesan*</label><br>
+                                            <span><font color="Red">Di Larang Memasukkan karakter tanda petik (') dalam pesan/informasi.!</font></span>
                                                 <textarea class="form-control" rows="3" name="pesan" 
                                                           OnFocus="Count();" OnClick="Count();" onKeydown="Count();"
                                                           OnChange="Count();" onKeyup="Count();"  placeholder="Masukkan Pesan"></textarea>
@@ -111,7 +112,8 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Isi Pesan</label>
+                                            <label>Isi Pesan*</label><br>
+                                            <span><font color="Red">Di Larang Memasukkan karakter tanda petik (') dalam pesan/informasi.!</font></span>
                                             <textarea class="form-control" name="message" rows="3" placeholder="Masukkan Pesan"></textarea>
                                         </div>
                                         <div class="box-footer clearfix">

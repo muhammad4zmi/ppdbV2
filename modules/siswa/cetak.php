@@ -123,7 +123,7 @@ float:left;
 {
 width:50%;
 height:100px;
-/*background-color:#0C0;
+background-color:#0C0;
 float:right;
 }
 </style>
@@ -145,13 +145,7 @@ float:right;
 
        </tr>
        </table>
-      <!--  <div class="barcodecell" align="right"><barcode code="<?php echo $no_daftar?>" type="I25" class="barcode" /></div>
-    </barcode>
-    </div> -->
     
-<!-- 
-        <?php QRCode::png("$no_daftar");?>  -->
-        
        
         <div align="center">
         <u><font size="5" align="center"><strong><b align="center">BERKAS PENDAFTARAN
@@ -225,14 +219,15 @@ float:right;
                                                             ?></p>
                           <p style="text-align: justify"><strong>CATATAN PENTING</strong><br>
                           
-                           -Pengambilan No. Peserta Ujian Hari Rabu, 12 Juli 2017.
+                           -Pengambilan No. Peserta Ujian Hari Rabu, 12 Juli 2018.
                             Dengan Membawa Bukti Pendaftaran<br>
-                           -Ujian Masuk Tanggal 13- 15 Juli 2017.<br>
-                           -Pra Masa Ta'aruf Siswa Madrasah(MATSAMA)/MOS Tanggal 16 Juli 2017<br>
-                           -Masa Ta'aruf Siswa Madrasah(MATSAMA)/MOS Tanggal 17-19 Juli 2017<br>
-                           -Pengumuman Hasil Test dan Daftar Ulang Tanggal 20 Juli 2017<br>
+                           -Ujian Masuk Tanggal 13- 15 Juli 2018.<br>
+                           -Pra Masa Ta'aruf Siswa Madrasah(MATSAMA)/MOS Tanggal 16 Juli 2018<br>
+                           -Masa Ta'aruf Siswa Madrasah(MATSAMA)/MOS Tanggal 17-19 Juli 2018<br>
+                           -Pengumuman Hasil Test dan Daftar Ulang Tanggal 20 Juli 2018<br>
                            -Saat Masuk agar melengkapi syarat pendaftaran berupa Foto Copy: Ijazah,SKHUN,KK dan Akta Lahir<br>
                            -Info Program/Jurusan : 1. MIA, 2. PIB, 3. IIS, 4. PIK
+                           -Info lebih lanjut Hubungi Panitia di 081918405331 (Ustazd Azmi)
                           </p>
                                                     <p>--------------------------------------------------------------------<i class="fa fa-cut"></i>Potong Disini--------------------------------------------------------------------</p>                                           
 <img src="../../img/header1.png" style="width:1000px;height:100px; margin-center: 200px" align="center">

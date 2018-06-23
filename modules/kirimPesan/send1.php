@@ -8,9 +8,9 @@ $message = $_POST['message'];
 //     $tujuan1 = $b['telpon'];
 $jmlSMS=ceil(strlen($message)/153);
 $pecah = str_split($message,153);
-$s=mysqli_query($link, "SHOW TABLES STATUS LIKE 'outbox'");
-$data=mysqli_fetch_array($s);
-$newID=$data['Auto_increment'];
+ $s=mysqli_query($link, "SHOW TABLES STATUS LIKE 'outbox'");
+// $data=mysqli_fetch_array($s);
+// $newID=$data['Auto_increment'];
 if ($tujuan == "Semua") {
     $s1=mysqli_query($link,"select * from tbl_siswa where telpon");
 
@@ -20,11 +20,11 @@ for ($i=1;$i<=$jmlSMS;$i++){
     $udh="050003A7".sprintf("%02s",$jmlSMS).sprintf("%02s",$i);
     $msg=$pecah[$i-1];
     if($i==1){
-        $query1=mysqli_query($link,"INSERT INTO outbox(DestinationNumber,UDH,TextDecoded,ID,MultiPart,CreatorID)
-            VALUES('$nomer','$udh','$msg','$newID','true','Gammu')");
+        $query1=mysqli_query($link,"INSERT INTO outbox(DestinationNumber,UDH,TextDecoded,MultiPart,CreatorID)
+            VALUES('$nomer','$udh','$msg','true','Gammu')");
     }else{
-        $query2=mysqli_query($link,"INSERT INTO outbox_multipart(UDH,TextDecoded,ID,SequencePosition)
-            VALUES('$udh','$msg','$newID','$i')");
+        $query2=mysqli_query($link,"INSERT INTO outbox_multipart(UDH,TextDecoded,SequencePosition)
+            VALUES('$udh','$msg','$i')");
     }
 }
 }

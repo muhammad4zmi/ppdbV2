@@ -42,7 +42,15 @@ if (!isset($_SESSION['admin-username']))
                    
                    
                   </ul>
-                  <div class="clearfix"></div>
+                  <div class="clearfix">
+                  <div class="x_content">
+                <a href="?admin=form_siswa"><button type="button" class="btn btn-primary" ><i class="fa fa-edit fa-lg"></i> Tambah Data</button></a>
+
+                  <a href="modules/siswa/excel.php"><button type="button" class="btn btn-success"><i class="fa fa-file-excel-o"></i> Export Data Excel</button></a>
+                 <!--  <a href="?admin=proses_back"><button type="button" class="btn btn-warning"><i class="fa fa-repeat"></i> Back Up Data</button></a> -->
+                   <a href="modules/siswa/kartu.php" target=_blank><button type="button" class="btn btn-info"><i class="fa fa-credit-card" ></i> Cetak Kartu Tes</button></a>
+                  </div>
+                  
                 </div>
                 <?php
                         if (isset($_SESSION['alert'])) {
@@ -56,10 +64,7 @@ if (!isset($_SESSION['admin-username']))
                         $j = mysqli_num_rows($sql_siswa);
                         if ($j > 0) {
                             ?>
-                <div class="x_content">
-                <a href="?admin=form_siswa"><button type="button" class="btn btn-primary"><i class="fa fa-edit fa-lg"></i> Tambah Data</button></a>
-
-                  <a href="modules/siswa/excel.php"><button type="button" class="btn btn-success"><i class="fa fa-file-excel-o"></i> Export Data Excel</button></a>
+                
 
                   <table id="datatable" class="table table-striped table-bordered">
                     <thead>
@@ -68,16 +73,16 @@ if (!isset($_SESSION['admin-username']))
                          <th>#</th>
                                             <th width="5%">No Pendaftaran</th>
                                             <!-- <th width="10">NIS</th> -->
-                                            <th width="5%">NISN</th>
+                                            <th width="5%">NIK</th>
                                             <th width="20%">Nama Lengkap</th>
                                             <!-- <th width="10%">Kelamin</th> -->
-                                            <th width="15%">Tgl Lahir</th>
+                                            <th width="15%">TT Lahir</th>
                                             <!-- <th width="10%">Agama</th>
                                             <th width="20%">Alamat</th> -->
                                             <th width="5%">Telpon</th>
                                             <th width="20%">Berkas</th>
                                             <th width="5%">Ket. Berkas</th>
-                                            <th width="10%">Aksi</th>
+                                            <th width="12%">Aksi</th>
                       </tr>
                     </thead>
 
@@ -92,10 +97,10 @@ if (!isset($_SESSION['admin-username']))
                                                 <td><?php echo $no; ?></td>
                                                 <td><?php echo $data_siswa['no_daftar']; ?></a></td>
                                                <!--  <td><?php echo $data_siswa['nis']; ?></a></td> -->
-                                                <td><?php echo $data_siswa['nisn']; ?></a></td>
+                                                <td><?php echo $data_siswa['nis']; ?></a></td>
                                                 <td><?php echo $data_siswa['nama_lengkap']; ?></a></td>
                                                 <!-- <td><?php echo $data_siswa['jk']; ?></a></td> -->
-                                                <td><?php echo (DateToIndo("$data_siswa[tgl_lahir]")); ?></td>
+                                                <td><?php echo $data_siswa['tempat_lahir'].", ".(DateToIndo("$data_siswa[tgl_lahir]")); ?></td>
                                                <!--  <td><?php echo $data_siswa['agama']; ?></a></td>-->
                                                 <td><?php echo $data_siswa['telpon']; ?></td> 
                                                 <td>
@@ -125,10 +130,10 @@ if (!isset($_SESSION['admin-username']))
                                                 <td>
                                                 <?php
                                                 $j1 = mysqli_num_rows($result);
-                                                        if ($j1 >=5) {
+                                                        if ($j1 >=6) {
                                                             echo '<span class="badge bg-green"><i class="fa  fa-check-circle" readonly></i> Lengkap';
-                                                        }elseif ($j1 < 5) {
-                                                            echo '<span class="badge bg-yellow"><i class="fa   fa-exclamation-triangle " readonly></i> Kurang';
+                                                        }elseif ($j1 < 6) {
+                                                            echo '<small class="badge pull-right bg-red"><i class="fa   fa-exclamation-triangle " readonly></i> Kurang';
                                                         }
 
                                                             ?>
@@ -137,15 +142,31 @@ if (!isset($_SESSION['admin-username']))
                                                 </td>
                                                 
                                                 <td>
-                                                    <a href="modules/siswa/cetak.php?no_daftar=<?php echo $data_siswa['no_daftar'];?>"  class="ubah"  title="" data-toggle="tooltip" data-original-title="Cetak Data <?php echo $data_siswa['no_daftar']?>" target=_blank>
+                                                 <div class="x_content">
+                                              <button data-toggle="dropdown" class="btn btn-info dropdown-toggle btn-round" type="button" aria-expanded="false">Action <span class="caret"></span>
+                  </button>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="modules/siswa/cetak.php?no_daftar=<?php echo $data_siswa['no_daftar'];?>" data-toggle="tooltip" data-original-title="Cetak Data <?php echo $data_siswa['no_daftar']?>" target=_blank><i class="fa fa-print"></i> Print</a>
+                    </li>
+                    <li><a href="?admin=detail_siswa&no_daftar=<?php echo $data_siswa['no_daftar']; ?>" class="ubah"  title="" data-toggle="tooltip" data-original-title="Lihat Detail Siswa <?php echo $data_siswa['nama_lengkap']?>"><i class="glyphicon glyphicon-eye-open"></i> Detail</a>
+                    </li>
+                    <li><a href="#" data-href="?admin=del_siswa&no_daftar=<?php echo $data_siswa['no_daftar']; ?>" data-toggle="modal" data-target="#confirm-delete"> <i class="glyphicon glyphicon-trash"></i> Delete</a>
+                    </li>
+                   
+                  </ul>
+                  </div>
+                                                   <!--  <a href="modules/siswa/cetak.php?no_daftar=<?php echo $data_siswa['no_daftar'];?>"  class="ubah"  title="" data-toggle="tooltip" data-original-title="Cetak Data <?php echo $data_siswa['no_daftar']?>" target=_blank>
                                                        <button type="button" class="btn btn-success btn-flat btn-sm"><i class="fa fa-print"></i> Cetak</button>
                                                    </a>
+                                                   <a href="?admin=detail_siswa&no_daftar=<?php echo $data_siswa['no_daftar']; ?>" class="ubah"  title="" data-toggle="tooltip" data-original-title="Lihat Detail Siswa <?php echo $data_siswa['nama_lengkap']?>">
+                                                       <button type="button" class="btn btn-success btn-flat btn-xs"><i class="glyphicon glyphicon-eye-open"></i></button>
+                                                   </a> -->
 
                                                    <!-- <a href="?admin=form_ubah&no_daftar=<?php echo $data_siswa['no_daftar']; ?>" class="ubah"  title="" data-toggle="tooltip" data-original-title="Ubah Siswa <?php echo $data_siswa['no_daftar']?>">
                                                        <button type="button" class="btn btn-info btn-flat btn-xs"><i class="glyphicon glyphicon-edit"></i></button>
                                                    </a>-->
-                                                   <a href="#" data-href="?admin=del_siswa&no_daftar=<?php echo $data_siswa['no_daftar']; ?>" data-toggle="modal" data-target="#confirm-delete">
-                                                    <button type="button" class="btn btn-danger btn-flat btn-xs"><i class="glyphicon glyphicon-trash"></i></button>
+                                                   <!-- <a href="#" data-href="?admin=del_siswa&no_daftar=<?php echo $data_siswa['no_daftar']; ?>" data-toggle="modal" data-target="#confirm-delete">
+                                                    <button type="button" class="btn btn-danger btn-flat btn-xs"><i class="glyphicon glyphicon-trash"></i></button> -->
 
                                                 </a>
 
@@ -179,7 +200,7 @@ if (!isset($_SESSION['admin-username']))
               <!-- footer content -->
               
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
             
                 <!-- <div class="modal-header">
@@ -188,13 +209,13 @@ if (!isset($_SESSION['admin-username']))
                 </div> -->
                 
                 <div class="modal-body">
-                    <h3 align="center"><i class="fa  fa-times-circle-o fa-fw fa-4x"></i></h3>
+                    <h3 align="center"><i class="fa  fa-warning fa-fw fa-4x"></i></h3>
                     <h4 align="center"><strong><p>Yakin Hapus Data ini.??</p></strong></h4>
                     <!--  <p class="debug-url"></p> -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-flat" data-dismiss="modal"><i class="fa fa-times fa-fw fa-lg"></i>Batal</button>
-                    <a class="btn btn-danger btn-ok btn-flat" >Ya, Hapus <i class="fa fa-sign-out fa-fw fa-lg"></i></a>
+                    <button type="button" class="btn btn-round btn-warning" data-dismiss="modal"><i class="fa fa-times fa-fw fa-lg"></i>Batal</button>
+                    <a class="btn btn-round btn-info btn-ok" >Ya, Hapus <i class="fa fa-sign-out fa-fw fa-lg"></i></a>
                 </div>
             </div>
         </div>
@@ -286,3 +307,86 @@ if (!isset($_SESSION['admin-username']))
         $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
     });
 </script>
+ <script type="text/javascript" src="js/notify/pnotify.core.js"></script>
+  <script type="text/javascript" src="js/notify/pnotify.buttons.js"></script>
+  <script type="text/javascript" src="js/notify/pnotify.nonblock.js"></script>
+
+  <script>
+    $(function() {
+      var cnt = 10; //$("#custom_notifications ul.notifications li").length + 1;
+      TabbedNotification = function(options) {
+        var message = "<div id='ntf" + cnt + "' class='text alert-" + options.type + "' style='display:none'><h2><i class='fa fa-bell'></i> " + options.title +
+          "</h2><div class='close'><a href='javascript:;' class='notification_close'><i class='fa fa-close'></i></a></div><p>" + options.text + "</p></div>";
+
+        if (document.getElementById('custom_notifications') == null) {
+          alert('doesnt exists');
+        } else {
+          $('#custom_notifications ul.notifications').append("<li><a id='ntlink" + cnt + "' class='alert-" + options.type + "' href='#ntf" + cnt + "'><i class='fa fa-bell animated shake'></i></a></li>");
+          $('#custom_notifications #notif-group').append(message);
+          cnt++;
+          CustomTabs(options);
+        }
+      }
+
+      CustomTabs = function(options) {
+        $('.tabbed_notifications > div').hide();
+        $('.tabbed_notifications > div:first-of-type').show();
+        $('#custom_notifications').removeClass('dsp_none');
+        $('.notifications a').click(function(e) {
+          e.preventDefault();
+          var $this = $(this),
+            tabbed_notifications = '#' + $this.parents('.notifications').data('tabbed_notifications'),
+            others = $this.closest('li').siblings().children('a'),
+            target = $this.attr('href');
+          others.removeClass('active');
+          $this.addClass('active');
+          $(tabbed_notifications).children('div').hide();
+          $(target).show();
+        });
+      }
+
+      CustomTabs();
+
+      var tabid = idname = '';
+      $(document).on('click', '.notification_close', function(e) {
+        idname = $(this).parent().parent().attr("id");
+        tabid = idname.substr(-2);
+        $('#ntf' + tabid).remove();
+        $('#ntlink' + tabid).parent().remove();
+        $('.notifications a').first().addClass('active');
+        $('#notif-group div').first().css('display', 'block');
+      });
+    })
+  </script>
+  <script type="text/javascript">
+    var permanotice, tooltip, _alert;
+    $(function() {
+      new PNotify({
+        title: "Perhatian..!!",
+        type: "dark",
+        text: "Silahkan Melakukan Pengisian Data Siswa Baru Dengan Mengklik Tombol Tambah Data & Mohon Melakukan Back Up Data setiap hari Jam 17.00 Wita",
+        nonblock: {
+          nonblock: true
+        },
+        before_close: function(PNotify) {
+          // You can access the notice's options with this. It is read only.
+          //PNotify.options.text;
+
+          // You can change the notice's options after the timer like this:
+          PNotify.update({
+            title: PNotify.options.title + " - Enjoy your Stay",
+            before_close: null
+          });
+          PNotify.queueRemove();
+          return false;
+        }
+      });
+
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('.progress .bar').progressbar(); // bootstrap 2
+      $('.progress .progress-bar').progressbar(); // bootstrap 3
+    });
+  </script>

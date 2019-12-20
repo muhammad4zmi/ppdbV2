@@ -1,3 +1,19 @@
+<?php
+$q = mysqli_query($link,'select ID, ReceivingDateTime,SenderNumber,TextDecoded from inbox where ID') or die('Gagal');
+$counter = 0;
+$now = date('Y-m-d');
+$online = date('d-m-Y');
+$jam = date("h:m");
+while ($r = mysqli_fetch_array($q)) {
+    $a = $r['ReceivingDateTime'];
+    $pengirim = $r['SenderNumber'];
+    $pesan = $r['TextDecoded'];
+    $tgl = substr($a, 0, 10);
+    if ($tgl == $now)
+   
+    $counter++;
+}
+?>
 <div class="row">
 
 <div class="col-md-5 col-sm-5 col-xs-12">
@@ -397,7 +413,7 @@
       new PNotify({
         title: "Perhatian..!!",
         type: "dark",
-        text: "Selamat Datang di Sistem PPDB MA Mu'allimin NW Anjani!!",
+        text: "Selamat Datang di Sistem PPDB MA Mu'allimin NW Anjani!! <br> Ada <strong><?php echo $counter;?></strong> Pesan Masuk Hari ini, Silahkan di buka..!!" ,
         nonblock: {
           nonblock: true
         },

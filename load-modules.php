@@ -149,8 +149,8 @@ switch ($module) {
     break;
 
     //------------Route Untuk Halaman Prestasi------------//
-    case 'prestasi' :
-    require("modules/prestasi/index.php");
+    case 'user' :
+    require("modules/data_user/index.php");
     break;
     case 'add_prestasi' :
     require("modules/prestasi/add_prestasi.php");
@@ -176,7 +176,7 @@ switch ($module) {
     case 'data_user' :
     require("modules/data_user/index.php");
     break;
-    case 'add-user' :
+    case 'add_user' :
     require("modules/data_user/add-user.php");
     break;
     case 'del-user' :

@@ -1,9 +1,9 @@
 <?php
 
 include "cek_login.php";
-if (isset($_GET['nip'])) {
-    $nip = (int) antiinjection($_GET['nip']);
-    $s = mysqli_query($link, "DELETE FROM tbl_user where nip='" . $nip . "'");
+if (isset($_GET['username'])) {
+    $username = (int) antiinjection($_GET['username']);
+    $s = mysqli_query($link, "DELETE FROM tbl_panitia where username='" . $username . "'");
     if ($s) {
         $alert = "<div class=\"alert alert-success alert-dismissable\" id='pesan'>
                     <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
@@ -18,7 +18,7 @@ if (isset($_GET['nip'])) {
         $_SESSION['alert'] = $alert;
     }
     ?>
-    <script type="text/javascript">document.location = "index.php?admin=data_user";</script>
+    <script type="text/javascript">document.location = "index.php?admin=user";</script>
     <?php
 
 }

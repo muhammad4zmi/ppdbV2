@@ -64,6 +64,8 @@ $jl=mysqli_query($link,'select * from tbl_siswa');
   <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.3.css" />
   <link href="css/icheck/flat/green.css" rel="stylesheet" />
   <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
+  <link href="css/select2.css" rel="stylesheet" type="text/css" />
+  <link href="css/select2.min.css" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="images/logo.jpg">
   <link href="css/calendar/fullcalendar.css" rel="stylesheet">
   <link href="css/calendar/fullcalendar.print.css" rel="stylesheet" media="print">
@@ -158,8 +160,15 @@ $jl=mysqli_query($link,'select * from tbl_siswa');
                    
                   </ul>
                 </li> -->
-                <li><a href="?admin=dt_siswa"><i class="fa fa-desktop"></i> Data Master </a>
-                  
+               
+                <li><a><i class="fa fa-desktop"></i> Data Master <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="?admin=dt_siswa"><i class="fa fa-angle-double-right"></i> Data Siswa Baru</a></li>                      
+                                <li><a href="index.php?admin=user"><i class="fa fa-angle-double-right"></i> Panitia</a></li>
+                                <li><a href="index.php?admin=outbox"><i class="fa fa-angle-double-right"></i> Syarat Pendaftaran</a></li>
+                   
+                  </ul>
+                </li> 
                 </li>
               <!--   <li><a href="?admin=view"><i class="fa fa-desktop"></i> View </a>
                   

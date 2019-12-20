@@ -627,7 +627,6 @@
                                                 <div class="col-sm-9">
                                                     <script type="text/javascript" src="modules/siswa/custom.js"></script>
                                                     <select  name="provinsi" class="form-control provinsi" id="provinsi">
-                                                    <!-- <select name="provinsi" id="provinsi" class="form-control provinsi" multiple="multiple" style="width: 450px"> -->
                                                         <?php
                                                         $prov = $db->query("SELECT * FROM tbl_provinsi");
                                                         echo'<option>Pilih Provinsi</option>';
@@ -1155,46 +1154,6 @@
   <script src="js/nicescroll/jquery.nicescroll.min.js"></script> -->
   <!-- icheck -->
   <script src="js/icheck/icheck.min.js"></script>
-  <script src="js/select2/select2.js"></script>
-  <script src="js/select2/select2.min.js"></script>
-  <!--js provinsi-->
-  <script type="text/javascript">
-	$(document).ready(function() {
-		$("#provinsi").select2({
-			placeholder: 'Pilih Provinsi',
-			allowClear: true
-		});
-	});
-</script>
- <!--js kota-->
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#kota").select2({
-			placeholder: 'Pilih Kabupaten/Kota',
-			allowClear: true
-		});
-	});
-</script>
-
-<!--js kecamatan-->
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#kecamatan").select2({
-			placeholder: 'Pilih Kecamatan',
-			allowClear: true
-		});
-	});
-</script>
-
-<!--js desa-->
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#kelurahan").select2({
-			placeholder: 'Pilih Desa/Kelurahan',
-			allowClear: true
-		});
-	});
-</script>
   <!-- pace -->
   <script src="js/pace/pace.min.js"></script>
   <script src="js/custom.js"></script>

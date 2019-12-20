@@ -11,7 +11,7 @@
                      TIMESTAMPDIFF(HOUR,inbox.ReceivingDateTime,NOW()) as jam,
                      TIMESTAMPDIFF(MINUTE,inbox.ReceivingDateTime,NOW()) as min
                      FROM inbox WHERE inbox.ID and inbox.Processed='false' 
-                     order by  inbox.ReceivingDateTime desc limit 0,5") or die('Gagal');
+                     order by  inbox.ReceivingDateTime desc limit 0,3") or die('Gagal');
                      $row = mysqli_num_rows($tandai2);
 if ($row > 0) {
     ?>
